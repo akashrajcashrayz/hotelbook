@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>ML API</title>
+</head>
+<body>
+
+<h1>HOTEL BOOKING STATUS</h1>
+<!-- Main Input For Receiving Query to our ML -->
+<form action="{{ url_for('predict')}}"method="post">
+<input type="number" name="ADR" placeholder="ADR" required="required" step="any" />
+<input type="number" name="ADULT" placeholder="ADULT" required="required" />
+<input type="number" name="CHILDREN" placeholder="CHILDREN" required="required" /><br/>
+<br/>
+<br/>
+<label for="MONTH">MONTH</label>
+<select id="MONTH" name="MONTH">
+  <option value="1">JANUARY</option>
+  <option value="2">FEBRUARY</option>
+  <option value="3">MARCH</option>
+  <option value="4">APRIL</option>
+  <option value="5">MAY</option>
+  <option value="6">JUNE</option> 
+  <option value="7">JULY</option>
+  <option value="8">AUGUST</option>
+  <option value="9">SEPTEMBER</option>
+  <option value="10">OCTOBER</option>
+  <option value="11">NOVEMBER</option>
+  <option value="12">DECEMBER</option>
+</select><br/>
+<br/>
+<br/>
+<label for="COUNTRY">COUNTRY</label>
+<select id="COUNTRY" name="COUNTRY">
+  <option value="1">BEL</option>
+  <option value="2">BRA</option>
+  <option value="3">DEU</option>
+  <option value="4">ESP</option>
+  <option value="5">FRA</option>
+  <option value="6">GBR</option>
+  <option value="7">IRL</option> 
+  <option value="8">ITA</option>
+  <option value="9">NLD</option>
+  <option value="10">PRT</option>
+  <option value="11">othercountry</option>
+</select><br/>
+<br/>
+<br/>
+<label for="ASSIGNED ROOM">ASSIGNED ROOM</label>
+<select id="ASSIGNED ROOM" name="ASSIGNED ROOM">
+  <option value="1">A</option>
+  <option value="2">B</option>
+  <option value="3">C</option>
+  <option value="4">D</option>
+  <option value="5">E</option>
+  <option value="6">F</option>
+  <option value="7">G</option> 
+  <option value="8">H</option>
+  <option value="9">I</option>
+  <option value="10">J</option>
+  <option value="11">K</option>
+</select><br/>
+<br/>
+<br/>
+<label for="MEAL">MEAL</label>
+<select id="MEAL" name="MEAL">
+  <option value="1">BB</option>
+  <option value="2">FB</option>
+  <option value="3">HB</option>
+  <option value="4">SC</option>
+  <option value="5">Undefined</option>
+</select><br/>
+<br/>
+<br/>
+<label for="CUSTOMER TYPE">CUSTOMER TYPE</label>
+<select id="CUSTOMER TYPE" name="CUSTOMER TYPE">
+  <option value="1">Contract</option>
+  <option value="2">Group</option>
+  <option value="3">Transient</option>
+  <option value="4">Transient-Party</option>
+</select><br/>
+<br/>
+<br/>
+<label for="DEPOSIT TYPE">DEPOSIT TYPE</label>
+<select id="DEPOSIT TYPE" name="DEPOSIT TYPE">
+  <option value="1">No Deposit</option>
+  <option value="2">Non Refund</option>
+  <option value="3">Refundable</option>
+</select><br/>
+<br/>
+<br/>
+<label for="HOTEL TYPE">HOTEL TYPE</label>
+<select id="HOTEL TYPE" name="HOTEL TYPE">
+  <option value="1">City Hotel</option>
+  <option value="2">Resort Hotel</option>
+</select><br/>
+<br/>
+<button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+</form>
+<br>
+{{ prediction_text }}
+</body>
+</html>
